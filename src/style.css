@@ -1,0 +1,245 @@
+:root {
+  --color-texto: #333;
+  --color-secundario: #555;
+  --color-link-hover: #007b5e;
+  --color-header-bg: #f5f5f5;
+  --color-footer-bg: #f0f0f0;
+  --color-boton: salmon;
+  --color-boton-hover: #388e3c;
+  --color-fondo-card: #fff;
+  --color-sombra-card: rgba(0, 0, 0, 0.1);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* HEADER */
+.nav-principal {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 1rem;
+  background-color: var(--color-header-bg);
+  border-bottom: 1px solid #ddd;
+}
+
+.nav-principal a {
+  text-decoration: none;
+  color: var(--color-texto);
+  font-weight: bold;
+}
+
+.nav-principal a:hover {
+  color: var(--color-link-hover);
+}
+
+/* FOOTER */
+.footer {
+  background-color: var(--color-footer-bg);
+  text-align: center;
+  padding: 1rem;
+  margin-top: 4rem;
+  font-size: 0.9rem;
+  color: var(--color-secundario);
+  border-top: 1px solid #ddd;
+}
+
+/* PORTADA */
+.portada {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  text-align: center;
+  padding: 2rem;
+}
+
+.titulo-portada {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: var(--color-texto);
+}
+
+.boton-ir-recetas {
+  display: inline-block;
+  background-color: var(--color-boton);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.boton-ir-recetas:hover {
+  background-color: var(--color-boton-hover);
+}
+
+/* GRID DE RECETAS */
+.grid-recetas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  padding: 2rem;
+  justify-items: center;
+}
+
+.titulo-recetas {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: var(--color-texto);
+}
+
+/* TARJETA DE RECETA */
+.card-receta {
+  text-decoration: none;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: var(--color-fondo-card);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-receta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px var(--color-sombra-card);
+}
+
+.card-receta img {
+  width: 40vh;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.card-receta h2 {
+  font-size: 1.1rem;
+  text-align: center;
+  color: var(--color-texto);
+  margin: 0.8rem 0;
+}
+
+/* PÁGINA SOBRE NOSOTROS */
+.sobre-nosotros {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--color-secundario);
+}
+
+/* DETALLE DE RECETA */
+.detalle-receta {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.detalle-receta img {
+  width: 500px;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px var(--color-sombra-card);
+}
+
+.detalle-receta .descripcion {
+  font-style: italic;
+  color: var(--color-secundario);
+  margin-bottom: 2rem;
+}
+
+.detalle-receta ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.detalle-receta li {
+  padding: 0.3rem 0;
+  font-weight: 500;
+}
+
+.detalle-receta h2 {
+  margin-top: 2rem;
+  color: var(--color-texto);
+}
+
+/* WCAG 2.0 AA: Foco visible */
+a:focus, 
+button:focus {
+  outline: 2px solid var(--color-link-hover);
+  outline-offset: 2px;
+}
+
+
+/* 📱 MEDIA QUERIES RESPONSIVE */
+@media (max-width: 1024px) {
+  .grid-recetas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav-principal {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-recetas {
+    grid-template-columns: 1fr;
+  }
+
+  .card-receta img,
+  .detalle-receta img {
+    width: 100%;
+    height: auto;
+  }
+
+  .titulo-portada,
+  .titulo-recetas {
+    font-size: 2rem;
+    padding: 0 1rem;
+  }
+
+  .boton-ir-recetas {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .sobre-nosotros {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  .nav-principal {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
