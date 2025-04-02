@@ -4,8 +4,8 @@
   --color-link-hover: salmon;
   --color-header-bg: #f5f5f5;
   --color-footer-bg: #f0f0f0;
-  --color-boton: rgb(241, 74, 56);
-  --color-boton-hover: rgb(193, 55, 39);
+  --color-boton: rgb(205, 61, 45);
+  --color-boton-hover: rgb(167, 50, 37);
   --color-fondo-card: #fff;
   --color-sombra-card: rgba(0, 0, 0, 0.1);
 }
@@ -91,15 +91,18 @@ main {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.40; /* 🔁 aquí controlás qué tanto se ve la imagen */
+  opacity: 0.70;
   z-index: -1;
 }
 
-
 .titulo-portada {
-  font-size: 3rem;
+  font-size: 4rem;
   margin-bottom: 2rem;
-  color: var(--color-texto);
+  color: white;
+  background-color: #97282866;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: inline-block;
 }
 
 .boton-ir-recetas {
@@ -111,6 +114,8 @@ main {
   text-decoration: none;
   font-size: 1.2rem;
   transition: background-color 0.3s ease;
+  opacity: 0.90;
+
 }
 
 .boton-ir-recetas:hover {
@@ -239,6 +244,14 @@ button:focus {
   color: var(--color-link-hover);
 }
 
+.intro-gastro p {
+  margin: 0;
+  margin-top: 3rem;
+  font-style: italic;
+  font-size: larger;
+  color: #555;
+}
+
 .destacados {
   display: flex;
   gap: 2rem;
@@ -257,6 +270,12 @@ button:focus {
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   text-align: center;
   padding: 1rem;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.destacado:hover{
+  transform: scale(1.1);
 }
 
 .destacado img {
