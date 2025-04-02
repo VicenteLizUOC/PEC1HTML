@@ -13,7 +13,7 @@ function mostrarPortada() {
     app.innerHTML = `
     <section class="portada">
       <h1 class="titulo-portada">Platos tradicionales de Aragón</h1>
-      <a href="#" id="boton-receta-aleatoria" class="boton-ir-recetas">Ver receta del día</a>
+      <a href="#" id="boton-receta-aleatoria" class="boton-ir-recetas">Inspírame</a>
     </section>
 
     <section class="intro-gastro">
