@@ -1,7 +1,9 @@
+import ternascoImg from "./img/ternasco.jpg";
+
 export const recetas = [
     {
         titulo: "Ternasco de Aragón",
-        imagen: "/img/ternasco.jpg",
+        imagen: ternascoImg,
         descripcion: "Cordero joven asado, emblema gastronómico aragonés.",
         ingredientes: [
             "Pierna o paletilla de ternasco",
