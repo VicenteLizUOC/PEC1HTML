@@ -1,19 +1,42 @@
 import Navigo from "navigo";
 import { recetas } from "../data.js";
-// import { recetas } from "./data copy.js";
+// import { recetas } from "./data2.js";
 
 const router = new Navigo("/", { hash: true });
 
 function mostrarPortada() {
     const app = document.getElementById("app");
-    if (app) {
-        app.innerHTML = `
-        <section class="portada">
-          <h1 class="titulo-portada">Platos tradicionales de Aragón</h1>
-          <a href="#/recetas" class="boton-ir-recetas">Ver recetas</a>
-        </section>
-      `;
-    }
+    if (!app) return;
+
+    const recetasDestacadas = recetas.slice(0, 3);
+
+    app.innerHTML = `
+    <section class="portada">
+      <h1 class="titulo-portada">Platos tradicionales de Aragón</h1>
+      <a href="#" id="boton-receta-aleatoria" class="boton-ir-recetas">Ver receta del día</a>
+    </section>
+
+    <section class="intro-gastro">
+      <h2>Un viaje a través del sabor</h2>
+      <p>La gastronomía aragonesa combina tradición, productos locales y el arte de cocinar con paciencia. Desde sus carnes asadas hasta sus postres únicos, cada plato cuenta una historia.</p>
+    </section>
+
+    <section class="destacados">
+      ${recetasDestacadas
+          .map(
+              (receta) => `
+            <a class="destacado" href="#/recetas/${encodeURIComponent(
+                receta.titulo.toLowerCase()
+            )}">
+              <img src="${receta.imagen}" alt="${receta.titulo}" />
+              <h3>${receta.titulo}</h3>
+              <p>${receta.descripcion}</p>
+            </a>
+          `
+          )
+          .join("")}
+    </section>
+  `;
 }
 
 function mostrarRecetas() {
@@ -51,12 +74,13 @@ function mostrarDetalleReceta({ data }) {
         return;
     }
 
-    console.log(receta);
+    // console.log(receta);
 
     app.innerHTML = `
       <section class="detalle-receta">
         <h1>${receta.titulo}</h1>
-        <img src="${receta.imagen}" alt="${receta.titulo}"/>
+        <img src="${receta.imagen}" alt="${receta.titulo}" />
+
         <p class="descripcion">${receta.descripcion}</p>
   
         <h2>Ingredientes</h2>
@@ -102,7 +126,16 @@ window.addEventListener("DOMContentLoaded", () => {
 
         if (target && target.id === "random-receta") {
             e.preventDefault();
+            const recetaAleatoria =
+                recetas[Math.floor(Math.random() * recetas.length)];
+            const slug = encodeURIComponent(
+                recetaAleatoria.titulo.toLowerCase()
+            );
+            window.location.hash = `#/recetas/${slug}`;
+        }
 
+        if (target && target.id === "boton-receta-aleatoria") {
+            e.preventDefault();
             const recetaAleatoria =
                 recetas[Math.floor(Math.random() * recetas.length)];
             const slug = encodeURIComponent(

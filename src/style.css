@@ -1,11 +1,11 @@
 :root {
   --color-texto: #333;
   --color-secundario: #555;
-  --color-link-hover: #007b5e;
+  --color-link-hover: salmon;
   --color-header-bg: #f5f5f5;
   --color-footer-bg: #f0f0f0;
-  --color-boton: salmon;
-  --color-boton-hover: #388e3c;
+  --color-boton: rgb(241, 74, 56);
+  --color-boton-hover: rgb(193, 55, 39);
   --color-fondo-card: #fff;
   --color-sombra-card: rgba(0, 0, 0, 0.1);
 }
@@ -57,16 +57,44 @@ main {
   border-top: 1px solid #ddd;
 }
 
+.footer a {
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--color-boton);
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: var(--color-boton-hover);
+}
+
+
 /* PORTADA */
 .portada {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 60vh;
   text-align: center;
   padding: 2rem;
+  color: var(--color-texto);
+  overflow: hidden;
 }
+
+.portada::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../public/img/platos-tipicos-aragon.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.40; /* 🔁 aquí controlás qué tanto se ve la imagen */
+  z-index: -1;
+}
+
 
 .titulo-portada {
   font-size: 3rem;
@@ -195,6 +223,62 @@ button:focus {
   outline: 2px solid var(--color-link-hover);
   outline-offset: 2px;
 }
+
+
+.intro-gastro {
+  text-align: center;
+  padding: 3rem 1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--color-texto);
+}
+
+.intro-gastro h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--color-link-hover);
+}
+
+.destacados {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #fafafa;
+}
+
+.destacado {
+  flex: 1 1 250px;
+  max-width: 300px;
+  background: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  text-align: center;
+  padding: 1rem;
+}
+
+.destacado img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.destacado h3 {
+  font-size: 1.2rem;
+  color: var(--color-texto);
+  margin-bottom: 0.5rem;
+}
+
+.destacado p {
+  font-size: 0.95rem;
+  color: var(--color-secundario);
+}
+
+
 
 
 /* 📱 MEDIA QUERIES RESPONSIVE */
