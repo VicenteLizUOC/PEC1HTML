@@ -310,6 +310,29 @@ button:focus {
   color: var(--color-secundario);
 }
 
+.carrusel .prev,
+.carrusel .next {
+    margin: 4px;
+    margin-top: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 1.5vh;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+
+}
+
+.carrusel .prev:hover,
+.carrusel .next:hover {
+    background-color: rgba(0, 0, 0, 0.85);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+}
+
 
 
 
