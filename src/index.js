@@ -105,7 +105,6 @@ function mostrarDetalleReceta({ data }) {
     </section>
   `;
 
-  // Agregar funcionalidad al carrusel
   const images = document.querySelectorAll(".carrusel-inner img");
   let index = 0;
 
