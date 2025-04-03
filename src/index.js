@@ -134,7 +134,7 @@ function mostrarSobre() {
         app.innerHTML = `
         <section class="sobre-nosotros">
           <h1>Sobre nosotros</h1>
-          <p>Este proyecto ha sido desarrollado como parte de la asignatura de HTML y CSS del Master de desarrollo web de la Universitat Oberta de Catalunya (UOC).</p>
+          <p>Este proyecto ha sido desarrollado como parte de la asignatura de HTML y CSS del Master de Desarrollo de Sitios y Aplicaciones Web de la Universitat Oberta de Catalunya (UOC).</p>
         </section>
       `;
     }
