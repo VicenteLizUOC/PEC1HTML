@@ -1,7 +1,10 @@
 export const recetas = [
     {
         titulo: "Ternasco de Aragón",
-        imagen: "https://imagenes.heraldo.es/files/image_1920_1080/uploads/imagenes/2024/11/22/ternasco-asado-con-patatas-gsc1.jpeg",
+        imagenes: ["https://imagenes.heraldo.es/files/image_1920_1080/uploads/imagenes/2024/11/22/ternasco-asado-con-patatas-gsc1.jpeg",
+            "https://upload.wikimedia.org/wikipedia/commons/a/a2/Bandera_de_Arag%C3%B3n_ondeando_%28Navard%C3%BAn%2C_Zaragoza%29.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/0/08/Localizaci%C3%B3n_de_Arag%C3%B3n.svg"
+        ],
         descripcion: "Cordero joven asado, emblema gastronómico aragonés.",
         ingredientes: [
             "Pierna o paletilla de ternasco",
@@ -15,7 +18,10 @@ export const recetas = [
     },
     {
         titulo: "Migas aragonesas",
-        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrQDRzHsHvu-gXuq32Yy-K6NDibT-Nff_8RA&s",
+        imagenes: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrQDRzHsHvu-gXuq32Yy-K6NDibT-Nff_8RA&s",
+            "https://upload.wikimedia.org/wikipedia/commons/a/a2/Bandera_de_Arag%C3%B3n_ondeando_%28Navard%C3%BAn%2C_Zaragoza%29.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/0/08/Localizaci%C3%B3n_de_Arag%C3%B3n.svg"
+        ],
         descripcion: "Plato humilde de pastores a base de pan y ajo.",
         ingredientes: [
             "Pan del día anterior",
@@ -29,7 +35,10 @@ export const recetas = [
     },
     {
         titulo: "Pollo al chilindrón",
-        imagen: "https://recetasdecocina.elmundo.es/wp-content/uploads/2016/10/receta-pollo-al-chilindron.jpg",
+        imagenes: ["https://recetasdecocina.elmundo.es/wp-content/uploads/2016/10/receta-pollo-al-chilindron.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/a/a2/Bandera_de_Arag%C3%B3n_ondeando_%28Navard%C3%BAn%2C_Zaragoza%29.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/0/08/Localizaci%C3%B3n_de_Arag%C3%B3n.svg"
+        ],
         descripcion: "Pollo guisado con pimientos y tomate.",
         ingredientes: [
             "Pollo troceado",
@@ -43,7 +52,10 @@ export const recetas = [
     },
     {
         titulo: "Bacalao ajoarriero",
-        imagen: "https://www.alberguemilpes.com/wp-content/uploads/2019/06/receta-bacalao-al-ajoarriero.jpg",
+        imagenes: [ "https://www.alberguemilpes.com/wp-content/uploads/2019/06/receta-bacalao-al-ajoarriero.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/a/a2/Bandera_de_Arag%C3%B3n_ondeando_%28Navard%C3%BAn%2C_Zaragoza%29.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/0/08/Localizaci%C3%B3n_de_Arag%C3%B3n.svg"
+        ],
         descripcion: "Bacalao desmigado con ajo, patata y huevo.",
         ingredientes: [
             "Bacalao desalado",
@@ -57,7 +69,10 @@ export const recetas = [
     },
     {
         titulo: "Cordero a la pastora",
-        imagen: "https://cocina-familiar.com/wp-content/uploads/2024/06/IMG_8088.jpg",
+        imagenes: ["https://cocina-familiar.com/wp-content/uploads/2024/06/IMG_8088.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/a/a2/Bandera_de_Arag%C3%B3n_ondeando_%28Navard%C3%BAn%2C_Zaragoza%29.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/0/08/Localizaci%C3%B3n_de_Arag%C3%B3n.svg"
+        ],
         descripcion: "Estofado de cordero tradicional con verduras.",
         ingredientes: [
             "Carne de cordero",
@@ -71,7 +86,10 @@ export const recetas = [
     },
     {
         titulo: "Huevos al salmorejo",
-        imagen: "https://www.espancomido.com/wp-content/uploads/2014/02/Huevos-al-salmorejo.jpg",
+        imagenes: ["https://www.espancomido.com/wp-content/uploads/2014/02/Huevos-al-salmorejo.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/a/a2/Bandera_de_Arag%C3%B3n_ondeando_%28Navard%C3%BAn%2C_Zaragoza%29.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/0/08/Localizaci%C3%B3n_de_Arag%C3%B3n.svg"
+        ],
         descripcion: "Huevos cocidos con salsa de pimentón y ajo.",
         ingredientes: [
             "Huevos cocidos",
@@ -85,7 +103,10 @@ export const recetas = [
     },
     {
         titulo: "Trenza de Almudévar",
-        imagen: "https://content-cocina.lecturas.com/medio/2024/03/30/trenza-de-almudevar_00000000_5d19875f_240330122856_1200x1200.jpg",
+        imagenes: ["https://content-cocina.lecturas.com/medio/2024/03/30/trenza-de-almudevar_00000000_5d19875f_240330122856_1200x1200.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/a/a2/Bandera_de_Arag%C3%B3n_ondeando_%28Navard%C3%BAn%2C_Zaragoza%29.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/0/08/Localizaci%C3%B3n_de_Arag%C3%B3n.svg"
+        ],
         descripcion: "Dulce típico de hojaldre con frutos secos.",
         ingredientes: [
             "Masa de hojaldre",
@@ -99,7 +120,10 @@ export const recetas = [
     },
     {
         titulo: "Crespillos de borraja",
-        imagen: "https://www.huescalamagia.es/blog/wp-content/uploads/2013/03/crespillos.jpg",
+        imagenes: ["https://www.huescalamagia.es/blog/wp-content/uploads/2013/03/crespillos.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/a/a2/Bandera_de_Arag%C3%B3n_ondeando_%28Navard%C3%BAn%2C_Zaragoza%29.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/0/08/Localizaci%C3%B3n_de_Arag%C3%B3n.svg"
+        ],
         descripcion: "Postre frito hecho con hojas de borraja.",
         ingredientes: [
             "Hojas de borraja",
