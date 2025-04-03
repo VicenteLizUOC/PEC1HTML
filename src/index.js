@@ -29,7 +29,7 @@ function mostrarPortada() {
             <a class="destacado" href="#/recetas/${encodeURIComponent(
                 receta.titulo.toLowerCase()
             )}">
-              <img src="${receta.imagen}" alt="${receta.titulo}" />
+              <img src="${receta.imagenes[0]}" alt="${receta.titulo}" />
               <h3>${receta.titulo}</h3>
               <p>${receta.descripcion}</p>
             </a>
@@ -41,59 +41,92 @@ function mostrarPortada() {
 }
 
 function mostrarRecetas() {
-    const app = document.getElementById("app");
-    if (app) {
-        app.innerHTML = `
-        <h1 class="titulo-recetas">Recetas tradicionales</h1>
-        <div class="grid-recetas">
-          ${recetas
-              .map(
-                  (receta) => `
-                <a class="card-receta" href="#/recetas/${encodeURIComponent(
-                    receta.titulo.toLowerCase()
-                )}">
-                  <img src="${receta.imagen}" alt="${receta.titulo}" />
-                  <h2>${receta.titulo}</h2>
-                </a>
-              `
-              )
-              .join("")}
-        </div>
-      `;
-    }
+  const app = document.getElementById("app");
+  if (app) {
+      app.innerHTML = `
+      <h1 class="titulo-recetas">Recetas tradicionales</h1>
+      <div class="grid-recetas">
+        ${recetas
+            .map(
+                (receta) => `
+              <a class="card-receta" href="#/recetas/${encodeURIComponent(
+                  receta.titulo.toLowerCase()
+              )}">
+                <img src="${receta.imagenes[0]}" alt="${receta.titulo}" />
+                <h2>${receta.titulo}</h2>
+              </a>
+            `
+            )
+            .join("")}
+      </div>
+    `;
+  }
 }
+
 
 function mostrarDetalleReceta({ data }) {
-    const app = document.getElementById("app");
-    if (!app) return;
+  const app = document.getElementById("app");
+  if (!app) return;
 
-    const nombreReceta = decodeURIComponent(data.nombre).toLowerCase();
-    const receta = recetas.find((r) => r.titulo.toLowerCase() === nombreReceta);
+  const nombreReceta = decodeURIComponent(data.nombre).toLowerCase();
+  const receta = recetas.find((r) => r.titulo.toLowerCase() === nombreReceta);
 
-    if (!receta) {
-        app.innerHTML = "<h1>Receta no encontrada</h1>";
-        return;
-    }
+  if (!receta) {
+      app.innerHTML = "<h1>Receta no encontrada</h1>";
+      return;
+  }
 
-    // console.log(receta);
+  app.innerHTML = `
+    <section class="detalle-receta">
+      <h1>${receta.titulo}</h1>
+      
+      <div class="carrusel">
+        <div class="carrusel-inner">
+          ${receta.imagenes.map(item => `<img src="${item}" alt="${receta.titulo}">`).join("")}
+        </div>
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
 
-    app.innerHTML = `
-      <section class="detalle-receta">
-        <h1>${receta.titulo}</h1>
-        <img src="${receta.imagen}" alt="${receta.titulo}" />
+      <p class="descripcion">${receta.descripcion}</p>
 
-        <p class="descripcion">${receta.descripcion}</p>
-  
-        <h2>Ingredientes</h2>
-        <ul>
-          ${receta.ingredientes.map((ing) => `<li>${ing}</li>`).join("")}
-        </ul>
-  
-        <h2>Preparación</h2>
-        <p>${receta.preparacion}</p>
-      </section>
-    `;
+      <h2>Ingredientes</h2>
+      <ul>
+        ${receta.ingredientes.map((ing) => `<li>${ing}</li>`).join("")}
+      </ul>
+
+      <h2>Preparación</h2>
+      <p>${receta.preparacion}</p>
+      
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/-WtcxAcY5AM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+  `;
+
+  // Agregar funcionalidad al carrusel
+  const images = document.querySelectorAll(".carrusel-inner img");
+  let index = 0;
+
+  function showImage(i) {
+      images.forEach((img, idx) => {
+          img.style.display = idx === i ? "block" : "none";
+      });
+  }
+
+  showImage(index);
+
+  document.querySelector(".prev").addEventListener("click", () => {
+      index = (index - 1 + images.length) % images.length;
+      showImage(index);
+  });
+
+  document.querySelector(".next").addEventListener("click", () => {
+      index = (index + 1) % images.length;
+      showImage(index);
+  });
 }
+
 
 function mostrarSobre() {
     const app = document.getElementById("app");
