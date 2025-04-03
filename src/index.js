@@ -6,12 +6,12 @@ import { recetas } from "../data.js";
 const router = new Navigo("/", { hash: true });
 
 function mostrarPortada() {
-    const app = document.getElementById("app");
-    if (!app) return;
+  const app = document.getElementById("app");
+  if (!app) return;
 
-    const recetasDestacadas = recetas.slice(0, 3);
+  const recetasDestacadas = recetas.slice(0, 3);
 
-    app.innerHTML = `
+  app.innerHTML = `
     <section class="portada">
       <h1 class="titulo-portada">Platos tradicionales de Aragón</h1>
       <a href="#" id="boton-receta-aleatoria" class="boton-ir-recetas">Inspírame</a>
@@ -24,18 +24,18 @@ function mostrarPortada() {
 
     <section class="destacados">
       ${recetasDestacadas
-          .map(
-              (receta) => `
+        .map(
+          (receta) => `
             <a class="destacado" href="#/recetas/${encodeURIComponent(
-                receta.titulo.toLowerCase()
+              receta.titulo.toLowerCase()
             )}">
               <img src="${receta.imagenes[0]}" alt="${receta.titulo}" />
               <h3>${receta.titulo}</h3>
               <p>${receta.descripcion}</p>
             </a>
           `
-          )
-          .join("")}
+        )
+        .join("")}
     </section>
   `;
 }
@@ -43,26 +43,25 @@ function mostrarPortada() {
 function mostrarRecetas() {
   const app = document.getElementById("app");
   if (app) {
-      app.innerHTML = `
+    app.innerHTML = `
       <h1 class="titulo-recetas">Recetas tradicionales</h1>
       <div class="grid-recetas">
         ${recetas
-            .map(
-                (receta) => `
+          .map(
+            (receta) => `
               <a class="card-receta" href="#/recetas/${encodeURIComponent(
-                  receta.titulo.toLowerCase()
+                receta.titulo.toLowerCase()
               )}">
                 <img src="${receta.imagenes[0]}" alt="${receta.titulo}" />
                 <h2>${receta.titulo}</h2>
               </a>
             `
-            )
-            .join("")}
+          )
+          .join("")}
       </div>
     `;
   }
 }
-
 
 function mostrarDetalleReceta({ data }) {
   const app = document.getElementById("app");
@@ -72,8 +71,8 @@ function mostrarDetalleReceta({ data }) {
   const receta = recetas.find((r) => r.titulo.toLowerCase() === nombreReceta);
 
   if (!receta) {
-      app.innerHTML = "<h1>Receta no encontrada</h1>";
-      return;
+    app.innerHTML = "<h1>Receta no encontrada</h1>";
+    return;
   }
 
   app.innerHTML = `
@@ -82,7 +81,9 @@ function mostrarDetalleReceta({ data }) {
       
       <div class="carrusel">
         <div class="carrusel-inner">
-          ${receta.imagenes.map(item => `<img src="${item}" alt="${receta.titulo}">`).join("")}
+          ${receta.imagenes
+            .map((item) => `<img src="${item}" alt="${receta.titulo}">`)
+            .join("")}
         </div>
         <button class="prev">&#10094;</button>
         <button class="next">&#10095;</button>
@@ -109,73 +110,68 @@ function mostrarDetalleReceta({ data }) {
   let index = 0;
 
   function showImage(i) {
-      images.forEach((img, idx) => {
-          img.style.display = idx === i ? "block" : "none";
-      });
+    images.forEach((img, idx) => {
+      img.style.display = idx === i ? "block" : "none";
+    });
   }
 
   showImage(index);
 
   document.querySelector(".prev").addEventListener("click", () => {
-      index = (index - 1 + images.length) % images.length;
-      showImage(index);
+    index = (index - 1 + images.length) % images.length;
+    showImage(index);
   });
 
   document.querySelector(".next").addEventListener("click", () => {
-      index = (index + 1) % images.length;
-      showImage(index);
+    index = (index + 1) % images.length;
+    showImage(index);
   });
 }
 
-
 function mostrarSobre() {
-    const app = document.getElementById("app");
-    if (app) {
-        app.innerHTML = `
+  const app = document.getElementById("app");
+  if (app) {
+    app.innerHTML = `
         <section class="sobre-nosotros">
           <h1>Sobre nosotros</h1>
           <p>Este proyecto ha sido desarrollado como parte de la asignatura de HTML y CSS del Master de Desarrollo de Sitios y Aplicaciones Web de la Universitat Oberta de Catalunya (UOC).</p>
         </section>
       `;
-    }
+  }
 }
 
 router
-    .on("/", mostrarPortada)
-    .on("/recetas", mostrarRecetas)
-    .on("/recetas/:nombre", mostrarDetalleReceta)
-    .on("/sobre", mostrarSobre)
-    .notFound(() => {
-        const app = document.getElementById("app");
-        if (app) {
-            app.innerHTML = "<h1>404 - Página no encontrada</h1>";
-        }
-    });
+  .on("/", mostrarPortada)
+  .on("/recetas", mostrarRecetas)
+  .on("/recetas/:nombre", mostrarDetalleReceta)
+  .on("/sobre", mostrarSobre)
+  .notFound(() => {
+    const app = document.getElementById("app");
+    if (app) {
+      app.innerHTML = "<h1>404 - Página no encontrada</h1>";
+    }
+  });
 
 window.addEventListener("DOMContentLoaded", () => {
-    router.resolve();
+  router.resolve();
 
-    document.addEventListener("click", (e) => {
-        const target = e.target;
+  document.addEventListener("click", (e) => {
+    const target = e.target;
 
-        if (target && target.id === "random-receta") {
-            e.preventDefault();
-            const recetaAleatoria =
-                recetas[Math.floor(Math.random() * recetas.length)];
-            const slug = encodeURIComponent(
-                recetaAleatoria.titulo.toLowerCase()
-            );
-            window.location.hash = `#/recetas/${slug}`;
-        }
+    if (target && target.id === "random-receta") {
+      e.preventDefault();
+      const recetaAleatoria =
+        recetas[Math.floor(Math.random() * recetas.length)];
+      const slug = encodeURIComponent(recetaAleatoria.titulo.toLowerCase());
+      window.location.hash = `#/recetas/${slug}`;
+    }
 
-        if (target && target.id === "boton-receta-aleatoria") {
-            e.preventDefault();
-            const recetaAleatoria =
-                recetas[Math.floor(Math.random() * recetas.length)];
-            const slug = encodeURIComponent(
-                recetaAleatoria.titulo.toLowerCase()
-            );
-            window.location.hash = `#/recetas/${slug}`;
-        }
-    });
+    if (target && target.id === "boton-receta-aleatoria") {
+      e.preventDefault();
+      const recetaAleatoria =
+        recetas[Math.floor(Math.random() * recetas.length)];
+      const slug = encodeURIComponent(recetaAleatoria.titulo.toLowerCase());
+      window.location.hash = `#/recetas/${slug}`;
+    }
+  });
 });

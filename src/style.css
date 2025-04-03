@@ -10,7 +10,8 @@
   --color-sombra-card: rgba(0, 0, 0, 0.1);
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -69,7 +70,6 @@ main {
   color: var(--color-boton-hover);
 }
 
-
 /* PORTADA */
 .portada {
   position: relative;
@@ -92,7 +92,7 @@ main {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.70;
+  opacity: 0.7;
   z-index: -1;
 }
 
@@ -115,8 +115,7 @@ main {
   text-decoration: none;
   font-size: 1.2rem;
   transition: background-color 0.3s ease;
-  opacity: 0.90;
-
+  opacity: 0.9;
 }
 
 .boton-ir-recetas:hover {
@@ -236,12 +235,11 @@ main {
 }
 
 /* WCAG 2.0 AA: Foco visible */
-a:focus, 
+a:focus,
 button:focus {
   outline: 2px solid var(--color-link-hover);
   outline-offset: 2px;
 }
-
 
 .intro-gastro {
   text-align: center;
@@ -280,14 +278,14 @@ button:focus {
   background: white;
   border-radius: 0.5rem;
   overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   text-align: center;
   padding: 1rem;
   text-decoration: none;
   transition: transform 0.3s ease;
 }
 
-.destacado:hover{
+.destacado:hover {
   transform: scale(1.1);
 }
 
@@ -312,29 +310,25 @@ button:focus {
 
 .carrusel .prev,
 .carrusel .next {
-    margin: 4px;
-    margin-top: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    font-size: 1.5vh;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-
+  margin: 4px;
+  margin-top: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 1.5vh;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
 }
 
 .carrusel .prev:hover,
 .carrusel .next:hover {
-    background-color: rgba(0, 0, 0, 0.85);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-    transform: scale(1.05);
+  background-color: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
 }
-
-
-
 
 @media (max-width: 1024px) {
   .grid-recetas {
@@ -348,7 +342,7 @@ button:focus {
   }
 
   .nav-principal a {
-    font-size: 2.5rem;
+    font-size: 1.2rem;
   }
 
   .portada {
@@ -363,12 +357,6 @@ button:focus {
 @media (max-width: 600px) {
   .grid-recetas {
     grid-template-columns: 1fr;
-  }
-
-  .card-receta img,
-  .detalle-receta img {
-    width: 100%;
-    height: auto;
   }
 
   .titulo-portada,
@@ -405,10 +393,10 @@ button:focus {
     width: 100%;
     height: auto;
     max-width: 100%;
-}
+  }
 
-.carrusel-inner img {
+  .carrusel-inner img {
     width: 100%;
     height: auto;
-}
+  }
 }
