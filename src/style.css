@@ -394,9 +394,4 @@ button:focus {
     height: auto;
     max-width: 100%;
   }
-
-  .carrusel-inner img {
-    width: 100%;
-    height: auto;
-  }
 }
