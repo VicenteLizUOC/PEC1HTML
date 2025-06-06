@@ -88,7 +88,7 @@ main {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../public/img/platos-tipicos-aragon.jpg");
+  background-image: url("../public/img/platos-tipicos-aragon.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -107,20 +107,56 @@ main {
 }
 
 .boton-ir-recetas {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--color-boton);
   color: white;
-  padding: 1rem 2rem;
+  padding: 1rem;
+  padding-right: 2rem;
   border-radius: 0.5rem;
   text-decoration: none;
   font-size: 1.2rem;
   transition: background-color 0.3s ease;
   opacity: 0.9;
+  gap: 1rem;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.boton-ir-recetas::after {
+  content: "";
+  display: inline-block;
+  width: 6vh;
+  height: 6vh;
+  background-image: url("../public/img/food-dish.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  transition: transform 0.4s ease;
+  transform: rotate(0deg) scale(1);
 }
 
 .boton-ir-recetas:hover {
   background-color: var(--color-boton-hover);
 }
+
+.boton-ir-recetas:hover::after {
+  transform: rotate(20deg) scale(1.1);
+  filter: invert(1) sepia(1) saturate(5) hue-rotate(200deg);
+}
+
+.imagen-clip {
+  width: 120px;
+  height: 120px; 
+  background-image: url('../public/img/bandera-aragon-small.webp');
+  background-size: cover;
+  background-position: center;
+  clip-path: circle(50% at 50% 50%);
+  margin-bottom: 2rem;
+  border-radius: 50%;
+}
+
 
 /* GRID DE RECETAS */
 .grid-recetas {
@@ -140,36 +176,90 @@ main {
 }
 
 /* TARJETA DE RECETA */
+.grid-recetas {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .card-receta {
-  text-decoration: none;
-  border: 1px solid #ddd;
+  background: white;
   border-radius: 0.5rem;
   overflow: hidden;
-  background-color: var(--color-fondo-card);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  width: 280px;
+  height: 350px;
 }
 
 .card-receta:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px var(--color-sombra-card);
+  transform: scale(1.05);
 }
 
-.card-receta img {
-  width: 40vh;
+.card-receta .image-container {
   height: 200px;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.card-receta .info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
 }
 
 .card-receta h2 {
-  font-size: 1.1rem;
-  text-align: center;
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
   color: var(--color-texto);
-  margin: 0.8rem 0;
 }
+
+.card-receta p {
+  font-size: 1rem;
+  color: var(--color-texto);
+}
+
+.card-ternasco-de-aragon .image-container {
+  background-image: url('../public/img/ternasco.webp');
+}
+
+.card-migas-aragonesas .image-container {
+  background-image: url('../public/img/migas.webp');
+}
+
+.card-pollo-al-chilindron .image-container {
+  background-image: url('../public/img/chilindron.webp');
+}
+
+.card-bacalao-ajoarriero .image-container {
+  background-image: url('../public/img/bacalao.webp');
+}
+
+.card-cordero-pastora .image-container {
+  background-image: url('../public/img/cordero.webp');
+}
+
+.card-huevos-al-salmorejo .image-container {
+  background-image: url('../public/img/huevos.webp');
+}
+
+.card-trenza-de-almudevar .image-container {
+  background-image: url('../public/img/trenza.webp');
+}
+
+.card-crespillos-de-borraja .image-container {
+  background-image: url('../public/img/crespillo.webp');
+}
+
 
 /* PÁGINA SOBRE NOSOTROS */
 .sobre-nosotros {
@@ -247,12 +337,19 @@ button:focus {
   max-width: 700px;
   margin: 0 auto;
   color: var(--color-texto);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem; 
 }
 
 .intro-gastro h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: var(--color-link-hover);
+  color: var(--color-boton-hover);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .intro-gastro p {
@@ -272,29 +369,53 @@ button:focus {
   background-color: #fafafa;
 }
 
-.destacado {
+.destacado-container {
   flex: 1 1 250px;
   max-width: 300px;
+}
+
+.destacado {
   background: white;
   border-radius: 0.5rem;
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  text-align: center;
-  padding: 1rem;
   text-decoration: none;
+  display: flex;
+  flex-direction: column;
   transition: transform 0.3s ease;
+  height: 300px;
 }
 
 .destacado:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
-.destacado img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
+.image-container {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.destacado .info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.destacado-ternasco .image-container {
+  background-image: url('../public/img/ternasco.webp');
+}
+
+.destacado-trenza .image-container {
+  background-image: url('../public/img/trenza.webp');
+}
+
+.destacado-cordero .image-container {
+  background-image: url('../public/img/cordero.webp');
 }
 
 .destacado h3 {
@@ -308,10 +429,23 @@ button:focus {
   color: var(--color-secundario);
 }
 
+.carrusel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.carrusel-inner {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
 .carrusel .prev,
 .carrusel .next {
-  margin: 4px;
-  margin-top: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-10%);
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
   border: none;
@@ -323,6 +457,14 @@ button:focus {
   transition: all 0.3s ease;
 }
 
+.carrusel .prev {
+  left: 10px;
+}
+
+.carrusel .next {
+  right: 10px;
+}
+
 .carrusel .prev:hover,
 .carrusel .next:hover {
   background-color: rgba(0, 0, 0, 0.85);
@@ -330,7 +472,103 @@ button:focus {
   transform: scale(1.05);
 }
 
+.carruselImage-2 {
+  background-image: url("../public/img/bandera-aragon.webp");
+}
+
+.carruselImage-3 {
+  background-image: url("../public/img/imagen-region-wide.webp");
+}
+
+.carruselImage-bacalao-ajoarriero {
+  background-image: url("../public/img/bacalao.webp");
+}
+
+.carruselImage-pollo-al-chilindron {
+  background-image: url("../public/img/chilindron.webp");
+}
+
+.carruselImage-cordero-pastora {
+  background-image: url("../public/img/cordero.webp");
+}
+
+.carruselImage-crespillos-de-borraja {
+  background-image: url("../public/img/crespillo.webp");
+}
+
+.carruselImage-huevos-al-salmorejo {
+  background-image: url("../public/img/huevos.webp");
+}
+
+.carruselImage-migas-aragonesas {
+  background-image: url("../public/img/migas.webp");
+}
+
+.carruselImage-ternasco-de-aragon {
+  background-image: url("../public/img/ternasco.webp");
+}
+
+.carruselImage-trenza-de-almudevar {
+  background-image: url("../public/img/trenza.webp");
+}
+
+
+[class*="carruselImage-"] {
+  width: 100%;
+  height: 60vh;
+  background-size: 100% 100%;
+  background-position: center;
+  display: none;
+}
+
+/* ENLACES */
+.lista-titulo {
+  max-width: 600px;
+  margin: 1rem auto;
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--color-secundario);
+}
+
+.lista-enlaces {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.lista-enlaces a {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.item-enlace {
+  border: 1px solid var(--color-sombra-card);
+  border-radius: 8px;
+  padding: 0.75rem;
+  background-color: var(--color-fondo-card);
+}
+
+.info-enlace p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+  color: var(--color-secundario);
+}
+
+
+
 @media (max-width: 1024px) {
+
+  [class*="carruselImage-"] {
+    width: 100%;
+    height: 40vh;
+    background-size: 100% 100%;
+    background-position: center;
+    display: none;
+  }
+
   .grid-recetas {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -349,12 +587,104 @@ button:focus {
     height: 55vh;
   }
 
+  .portada::before {
+    background-image: url("../public/img/platos-tipicos-aragon-lr.webp");
+  }
+
   .video-container {
     margin-top: 12vh;
+  }
+
+  .destacado-ternasco .image-container {
+    background-image: url('../public/img/ternasco-med.webp');
+  }
+
+  .destacado-trenza .image-container {
+    background-image: url('../public/img/trenza-med.webp');
+  }
+
+  .destacado-cordero .image-container {
+    background-image: url('../public/img/cordero-med.webp');
+  }
+
+  .card-migas-aragonesas .image-container {
+    background-image: url('../public/img/migas-med.webp');
+  }
+
+  .card-pollo-al-chilindron .image-container {
+    background-image: url('../public/img/chilindron-med.webp');
+  }
+
+  .card-bacalao-ajoarriero .image-container {
+    background-image: url('../public/img/bacalao-med.webp');
+  }
+
+  .card-cordero-pastora .image-container {
+    background-image: url('../public/img/cordero-med.webp');
+  }
+
+  .card-huevos-al-salmorejo .image-container {
+    background-image: url('../public/img/huevos-med.webp');
+  }
+
+  .card-trenza-de-almudevar .image-container {
+    background-image: url('../public/img/trenza-med.webp');
+  }
+
+  .card-crespillos-de-borraja .image-container {
+    background-image: url('../public/img/crespillo-med.webp');
+  }
+
+  .carruselImage-ternasco-de-aragon {
+    background-image: url("../public/img/ternasco-med.webp");
+  }
+
+  .carruselImage-migas-aragonesas {
+    background-image: url("../public/img/migas-med.webp");
+  }
+  
+  .carruselImage-pollo-al-chilindron {
+    background-image: url("../public/img/chilindron-med.webp");
+  }
+
+  .carruselImage-bacalao-ajoarriero {
+    background-image: url("../public/img/bacalao-med.webp");
+  }
+
+  .carruselImage-cordero-pastora {
+    background-image: url("../public/img/cordero-med.webp");
+  }
+  
+  .carruselImage-huevos-al-salmorejo {
+    background-image: url("../public/img/huevos-med.webp");
+  }
+  
+  .carruselImage-trenza-de-almudevar {
+    background-image: url("../public/img/trenza-med.webp");
+  }
+
+  .carruselImage-crespillos-de-borraja {
+    background-image: url("../public/img/crespillo-med.webp");
+  }
+
+  .carruselImage-3 {
+    background-image: url("../public/img/imagen-region.webp");
+  }
+
+  .carruselImage-2 {
+    background-image: url("../public/img/bandera-aragon-med.webp");
+  }
+
+  .lista-enlaces {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 600px) {
+  .portada::before {
+    background-image: url("../public/img/platos-tipicos-aragon-lr.webp");
+  }
+
   .grid-recetas {
     grid-template-columns: 1fr;
   }
@@ -372,7 +702,6 @@ button:focus {
 
   .sobre-nosotros {
     padding: 1rem;
-    font-size: 1rem;
   }
 
   .nav-principal {
@@ -399,5 +728,58 @@ button:focus {
     width: 100%;
     height: 200px;
     object-fit: cover;
+  }
+
+  .destacado-ternasco .image-container {
+    background-image: url('../public/img/ternasco-small.webp');
+  }
+
+  .destacado-trenza .image-container {
+    background-image: url('../public/img/trenza-small.webp');
+  }
+
+  .destacado-cordero .image-container {
+    background-image: url('../public/img/cordero-small.webp');
+  }
+
+  .card-migas-aragonesas .image-container {
+    background-image: url('../public/img/migas-small.webp');
+  }
+
+  .card-pollo-al-chilindron .image-container {
+    background-image: url('../public/img/chilindron-small.webp');
+  }
+
+  .card-bacalao-ajoarriero .image-container {
+    background-image: url('../public/img/bacalao-small.webp');
+  }
+
+  .card-cordero-pastora .image-container {
+    background-image: url('../public/img/cordero-small.webp');
+  }
+
+  .card-huevos-al-salmorejo .image-container {
+    background-image: url('../public/img/huevos-small.webp');
+  }
+
+  .card-trenza-de-almudevar .image-container {
+    background-image: url('../public/img/trenza-small.webp');
+  }
+
+  .card-crespillos-de-borraja .image-container {
+    background-image: url('../public/img/crespillo-small.webp');
+  }
+
+  .carruselImage-2 {
+    background-image: url("../public/img/bandera-aragon-small.webp");
+  }
+
+  .imagen-clip {
+    width: 80px;
+    height: 80px;
+  }
+
+  .lista-enlaces {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
