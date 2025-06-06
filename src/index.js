@@ -1,6 +1,5 @@
 import Navigo from "navigo";
 import { recetas } from "../data.js";
-// Remove-Item -Recurse -Force .parcel-cache, dist
 
 const router = new Navigo("/", { hash: true });
 
