@@ -62,7 +62,7 @@ main {
 .footer a {
   text-decoration: none;
   font-weight: bold;
-  color: var(--color-boton);
+  color: var(--color-boton-hover);
   transition: color 0.3s ease;
 }
 
